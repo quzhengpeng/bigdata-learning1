@@ -1,2 +1,29 @@
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+null/
+
+# Scala-IDE specific
+.idea/
+
+# resources specific
+resources/
+spark-warehouse/
+
+# log file
+*.hprof
+
+# Scala template
 *.class
 *.log
+
+*.iml
