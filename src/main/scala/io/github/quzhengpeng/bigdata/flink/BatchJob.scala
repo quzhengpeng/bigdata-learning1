@@ -35,20 +35,21 @@ import org.apache.flink.api.scala._
  */
 object BatchJob {
 
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
     // set up the batch execution environment
     val env = ExecutionEnvironment.getExecutionEnvironment
     val input: DataSet[(Int, String, Double)] = env.fromElements(
-      (1, "Hello", 4),
-      (1, "Hello", 5),
-      (2, "Hello", 5),
-      (3, "World", 6),
-      (3, "World", 6)
+      (1, "Hello", 1),
+      (2, "Hello", 2),
+      (4, "Hello", 3),
+      (8, "World", 4),
+      (16, "World", 5)
     )
     val output = input.groupBy(1)
       .aggregate(Aggregations.SUM, 0)
       .and(Aggregations.MIN, 2)
     output.print()
+
     /*
      * Here, you can start creating your execution plan for Flink.
      *
